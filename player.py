@@ -11,11 +11,16 @@ class Player(Turtle):
         self.color("red")
         self.up()
         self.setheading(90)
+        self.got_to_start()
+
+    def got_to_start(self):
+        """Moves the player to the starting position"""
         self.goto(STARTING_POSITION)
 
     def race_finish(self):
         """Detects if the player has reached the finsih line"""
         if self.ycor() >= FINISH_LINE_Y:
+            self.got_to_start()
             return True
         return False
 
